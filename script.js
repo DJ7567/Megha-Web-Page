@@ -142,9 +142,8 @@ continueBtn.addEventListener("click", () => {
 
 /* Quiz */
 let questions = [
-  { q: "Who is my forever? 💖", correct: "Meghu", options: ["Meghu", "Someone else"] },
-  { q: "Who loves more? ❤️", correct: "Meghu", options: ["Meghu", "Divyaraj"] },
-  { q: "Who gets jealous more? 😏", correct: "Divyaraj", options: ["Meghu", "Divyaraj"] }
+  { q: "Who is your best friend ? 💖", correct: "Divyaraj", options: [" Divyaraj "," Amisha "," No Best friend"] },
+  { q: "Who is more Nakhre baj ? ❤️", correct: "Meghu", options: [" Meghu ", " Divyaraj ", " Both "] },
 ];
 
 let current = 0;
@@ -207,4 +206,5 @@ Meghu,
 I choose you.
 Always. 💍`;
 }
+
 
