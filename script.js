@@ -1,3 +1,13 @@
+// 🔒 PASSWORD LOCK (only your wife can access)
+const password = "MEGHU123";  // Change this to your own password
+let entered = prompt("Enter password to open the love story:");
+
+if (entered !== password) {
+  document.body.innerHTML = "<h1 style='text-align:center; margin-top:50vh;'>Access Denied ❌</h1>";
+  throw new Error("Access Denied");
+}
+
+/* ------------------ Screens ------------------ */
 const screens = document.querySelectorAll(".screen");
 const music = document.getElementById("bgMusic");
 
@@ -162,11 +172,17 @@ function showQuestion() {
         }
       };
     } else {
-      btn.onmouseover = () => {
+      btn.addEventListener("mouseover", () => {
         btn.style.position = "absolute";
         btn.style.left = Math.random() * 70 + "%";
         btn.style.top = Math.random() * 70 + "%";
-      };
+      });
+
+      btn.addEventListener("touchstart", () => {
+        btn.style.position = "absolute";
+        btn.style.left = Math.random() * 70 + "%";
+        btn.style.top = Math.random() * 70 + "%";
+      });
     }
 
     optDiv.appendChild(btn);
