@@ -1,208 +1,122 @@
-// 🔒 PASSWORD LOCK (only your wife can access)
-const password = "Swifty@2003";  // Change this to your own password
-let entered = prompt("Enter password to verify that it's Meghu:");
-
-if (entered !== password) {
-  document.body.innerHTML = "<h1 style='text-align:center; margin-top:50vh;'>Access Denied ❌</h1>";
-  throw new Error("Access Denied");
+body {
+  margin: 0;
+  height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(120deg, #ffbfd3, #ffe6eb);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  color: #6a1b9a;
+  text-align: center;
 }
 
-/* ------------------ Screens ------------------ */
-const screens = document.querySelectorAll(".screen");
-const music = document.getElementById("bgMusic");
-
-const basket = document.getElementById("basket");
-const popup = document.getElementById("memoryPopup");
-const memoryImage = document.getElementById("memoryImage");
-const memoryText = document.getElementById("memoryText");
-const continueBtn = document.getElementById("continueBtn");
-
-let gamePaused = false; // pause while popup shows
-
-function showScreen(id) {
-  screens.forEach(s => s.classList.add("hidden"));
-  document.getElementById(id).classList.remove("hidden");
+/* Screens */
+.screen {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  transition: opacity 0.6s ease;
 }
 
-/* Typing Effect */
-let text = `Hello to My lovely littel Meghu 💖. Click below to Start a Game 💞
-you have to catch my Heart which are falling down 😲,
-on each successful catch you'll see a memory from my heart 💕
-and a Message attached to it.`;
-
-let i = 0;
-function typeWriter() {
-  if (i < text.length) {
-    document.getElementById("typing").innerHTML += text[i];
-    i++;
-    setTimeout(typeWriter, 40);
-  }
-}
-typeWriter();
-
-/* Begin Button (Safari Safe Music Start) */
-document.getElementById("beginBtn").addEventListener("click", () => {
-  music.play().catch(() => {});
-  showScreen("catch");
-  spawnHeart();
-});
-
-/* Basket Movement (PC + Mobile) */
-function moveBasket(x) {
-  const gameWidth = window.innerWidth;
-
-  let position = x;
-
-  if (position < 30) position = 30;
-  if (position > gameWidth - 30) position = gameWidth - 30;
-
-  basket.style.left = position + "px";
+.hidden {
+  opacity: 0;
+  pointer-events: none;
 }
 
-document.addEventListener("mousemove", (e) => moveBasket(e.clientX));
-document.addEventListener("touchmove", (e) => {
-  e.preventDefault();
-  moveBasket(e.touches[0].clientX);
-}, { passive: false });
-
-/* Heart Memories (Image + Message Together) */
-let memories = [
-  { img: "images/image1.png", text: "Your smile melts my heart every time 💕" },
-  { img: "images/image2.png", text: "This was one of my favorite days with you ❤️" },
-  { img: "images/image3.png", text: "How are you this beautiful? 😍" },
-  { img: "images/image4.png", text: "You are my peace, my happiness 💖" },
-  { img: "images/image5.png", text: "Forever starts and ends with you 💍" },
-  { img: "images/image6.png", text: "Every moment with you is a treasure 💎" }
-];
-
-let caught = 0;
-
-function spawnHeart() {
-  let heart = document.createElement("div");
-  heart.className = "heart";
-  heart.innerHTML = "❤️";
-  heart.style.left = Math.random() * window.innerWidth + "px";
-  heart.style.top = "0px";
-  document.getElementById("catch").appendChild(heart);
-
-  let fall = setInterval(() => {
-
-    if (gamePaused) return;
-
-    heart.style.top = parseFloat(heart.style.top) + 3 + "px";
-
-    let basketRect = basket.getBoundingClientRect();
-    let heartRect = heart.getBoundingClientRect();
-
-    if (
-      heartRect.bottom >= basketRect.top &&
-      heartRect.left < basketRect.right &&
-      heartRect.right > basketRect.left
-    ) {
-      clearInterval(fall);
-      heart.remove();
-
-      gamePaused = true;
-      showMemory();
-    }
-
-    if (parseFloat(heart.style.top) > window.innerHeight) {
-      clearInterval(fall);
-      heart.remove();
-      spawnHeart();
-    }
-
-  }, 20);
+/* Titles */
+h1 { font-size: 2rem; }
+.finalTitle {
+  font-family: 'Great Vibes', cursive;
+  font-size: 42px;
 }
 
-function showMemory() {
-  if (caught >= memories.length) {
-    startQuiz();
-    return;
-  }
-
-  memoryImage.src = memories[caught].img;
-  memoryText.innerText = memories[caught].text;
-
-  popup.classList.remove("hidden");
+/* Button */
+button {
+  background: #ff4081;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-size: 1rem;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-continueBtn.addEventListener("click", () => {
-  popup.classList.add("hidden");
-  caught++;
-  gamePaused = false;
+button:hover {
+  background: #f50057;
+  transform: scale(1.05);
+}
 
-  if (caught < memories.length) {
-    spawnHeart();
-  } else {
-    setTimeout(startQuiz, 500);
-  }
-});
+/* Typing */
+#typing {
+  margin-top: 20px;
+  white-space: pre-line;
+}
+
+/* Catch Game */
+#basket {
+  position: absolute;
+  bottom: 40px;
+  font-size: 160px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.heart {
+  position: absolute;
+  font-size: 40px;
+}
+
+#catchMessage {
+  position: absolute;
+  top: 15%;
+  font-weight: 600;
+  min-height: 40px;
+}
 
 /* Quiz */
-let questions = [
-  { q: "Who is my forever? 💖", correct: "Meghu", options: ["Meghu", "Someone else"] },
-  { q: "Who loves more? ❤️", correct: "Meghu", options: ["Meghu", "Divyaraj"] },
-  { q: "Who gets jealous more? 😏", correct: "Divyaraj", options: ["Meghu", "Divyaraj"] }
-];
-
-let current = 0;
-
-function startQuiz() {
-  showScreen("quiz");
-  showQuestion();
+#quizQuestion {
+  font-size: 18px;
+  margin-bottom: 20px;
 }
 
-function showQuestion() {
-  let q = questions[current];
-  document.getElementById("quizQuestion").innerText = q.q;
-  let optDiv = document.getElementById("options");
-  optDiv.innerHTML = "";
-
-  q.options.forEach(o => {
-    let btn = document.createElement("button");
-    btn.innerText = o;
-
-    if (o === q.correct) {
-      btn.onclick = () => {
-        current++;
-        if (current < questions.length) {
-          showQuestion();
-        } else {
-          showFinal();
-        }
-      };
-    } else {
-      btn.addEventListener("mouseover", () => {
-        btn.style.position = "absolute";
-        btn.style.left = Math.random() * 70 + "%";
-        btn.style.top = Math.random() * 70 + "%";
-      });
-
-      btn.addEventListener("touchstart", () => {
-        btn.style.position = "absolute";
-        btn.style.left = Math.random() * 70 + "%";
-        btn.style.top = Math.random() * 70 + "%";
-      });
-    }
-
-    optDiv.appendChild(btn);
-  });
+/* Memory Popup Inside Heart Game */
+#memoryPopup {
+  position: absolute;
+  top: 5%;
+  background: white;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  max-width: 400px;
+  text-align: center;
+  z-index: 10;
 }
 
-/* Final */
-function showFinal() {
-  showScreen("final");
-  document.getElementById("finalText").innerText =
-`From the first day you entered my life 💖
+#memoryPopup img {
+  width: 800px;
+  max-width: 100%;
+  border-radius: 15px;
+  margin-bottom: 15px;
+}
 
-Everything started compiling perfectly.
+#memoryText {
+  font-size: 14px;
+  white-space: pre-line;
+}
 
-No errors.
-No crashes.
-Just love running forever. ❤️
-
-Meghu,
-I choose you.
-Always. 💍`;
+/* Responsive */
+@media (max-width: 600px) {
+  h1 { font-size: 1.5rem; }
+  .finalTitle { font-size: 32px; }
+  #memoryPopup {
+    max-width: 90%;
+  }
 }
