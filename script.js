@@ -18,7 +18,6 @@ const memoryText = document.getElementById("memoryText");
 const continueBtn = document.getElementById("continueBtn");
 
 let gamePaused = false; // pause while popup shows
-music.play().catch(() => {});
 function showScreen(id) {
   screens.forEach(s => s.classList.add("hidden"));
   document.getElementById(id).classList.remove("hidden");
@@ -30,6 +29,7 @@ you have to catch my Heart which are falling down 😲,
 on each successful catch you'll see a memory from my heart 💕
 and a Message attached to it.`;
 
+music.play().catch(() => {});
 let i = 0;
 function typeWriter() {
   if (i < text.length) {
