@@ -1,6 +1,6 @@
 // 🔒 PASSWORD LOCK (only your wife can access)
 const password = "Swifty@2003";  // Change this to your own password
-let entered = prompt("Enter password to open the love story:");
+let entered = prompt("Enter password to verify that it's Meghu:");
 
 if (entered !== password) {
   document.body.innerHTML = "<h1 style='text-align:center; margin-top:50vh;'>Access Denied ❌</h1>";
@@ -25,10 +25,10 @@ function showScreen(id) {
 }
 
 /* Typing Effect */
-let text = `Initializing Love System... 💻
-Searching for: Megha ❤️
-Nickname detected: Meghu 💕
-Authentication Successful.`;
+let text = `Hello to My lovely littel Meghu 💖. Click below to Start a Game 💞
+you have to catch my Heart which are falling down 😲,
+on each successful catch you'll see a memory from my heart 💕
+and a Message attached to it.`;
 
 let i = 0;
 function typeWriter() {
@@ -205,5 +205,4 @@ Meghu,
 I choose you.
 Always. 💍`;
 }
-
 
