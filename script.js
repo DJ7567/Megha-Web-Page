@@ -18,14 +18,13 @@ const memoryText = document.getElementById("memoryText");
 const continueBtn = document.getElementById("continueBtn");
 
 let gamePaused = false; // pause while popup shows
-
+music.play().catch(() => {});
 function showScreen(id) {
   screens.forEach(s => s.classList.add("hidden"));
   document.getElementById(id).classList.remove("hidden");
 }
 
 /* Typing Effect */
-music.play().catch(() => {});
 let text = `Hello to My lovely littel Meghu 💖. Click below to Start a Game 💞
 you have to catch my Heart which are falling down 😲,
 on each successful catch you'll see a memory from my heart 💕
@@ -206,6 +205,7 @@ Meghu,
 I choose you.
 Always. 💍`;
 }
+
 
 
 
