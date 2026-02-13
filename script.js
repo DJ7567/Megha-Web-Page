@@ -142,7 +142,6 @@ continueBtn.addEventListener("click", () => {
 
 /* Quiz */
 let questions = [
-  { q: "Who is your best friend ? ", correct: "Divyaraj", options: ["Divyaraj"," Amisha "," No Best friend"] },
   { q: "Who is more Nakhre baj ? ", correct: "Meghu", options: ["Meghu", " Divyaraj ", " Both "] },
 ];
 
@@ -206,6 +205,7 @@ Meghu,
 I choose you.
 Always. 💍`;
 }
+
 
 
 
