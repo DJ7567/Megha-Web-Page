@@ -67,12 +67,13 @@ document.addEventListener("touchmove", (e) => {
 
 /* Heart Memories (Image + Message Together) */
 let memories = [
-  { img: "images/image1.png", text: "Your smile melts my heart every time 💕" },
-  { img: "images/image2.png", text: "This was one of my favorite days with you ❤️" },
-  { img: "images/image3.png", text: "How are you this beautiful? 😍" },
-  { img: "images/image4.png", text: "You are my peace, my happiness 💖" },
-  { img: "images/image5.png", text: "Forever starts and ends with you 💍" },
-  { img: "images/image6.png", text: "Every moment with you is a treasure 💎" }
+  { img: "images/image1.png", text: "Long Road trip, with beautifull Maghu 💕" },
+  { img: "images/image2.png", text: "My Darling Ramu driver, when you are with everyday feels valentain Day ❤️" },
+  { img: "images/image3.png", text: "I am very proud of my Artist, you are very talented 💎" },
+  { img: "images/image4.png", text: "My SuperWoman, the virat kohli of NIQ 💎" },
+  { img: "images/image5.png", text: "Traveling whole world with you, is one of my Dream. 😍" },
+  { img: "images/image6.png", text: "We help each other grow, share the work load, take care of each other ❤️" },
+  { img: "images/image7.png", text: "I want to see you win. So start working hard, you are my 💎" }
 ];
 
 let caught = 0;
@@ -206,3 +207,4 @@ Meghu,
 I choose you.
 Always. 💍`;
 }
+
