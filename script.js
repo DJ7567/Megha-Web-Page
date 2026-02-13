@@ -70,7 +70,7 @@ let memories = [
   { img: "images/image1.png", text: "Long Road trip, with my beautifull Maghu 💕" },
   { img: "images/image2.png", text: "My Darling Ramu driver, when you are with me everyday feels valentine Day ❤️" },
   { img: "images/image3.png", text: "I am very proud of my Artist, you are very talented 💎" },
-  { img: "images/image4.png", text: "My Super Women 💕"" },
+  { img: "images/image4.png", text: "My SuperWomen, the virat kohli of NIQ 💎" },
   { img: "images/image5.png", text: "Traveling whole world with you, is one of my Dream. 😍" },
   { img: "images/image6.png", text: "We help each other grow, share the work load and take care of each other ❤️" },
   { img: "images/image7.png", text: "I want to see you win. So start working hard, you are my 💎 can and will." }
@@ -142,7 +142,8 @@ continueBtn.addEventListener("click", () => {
 
 /* Quiz */
 let questions = [
-  { q: "Who is more Nakhre baj ? ", correct: "Divyaraj", options: ["Meghu", " Divyaraj ", "Both"] },
+  { q: "Who is your best friend ? ", correct: "Divyaraj", options: ["Divyaraj"," Amisha "," No Best friend"] },
+  { q: "Who is more Nakhre baj ? ", correct: "Meghu", options: ["Meghu", " Divyaraj ", " Both "] },
 ];
 
 let current = 0;
@@ -205,9 +206,6 @@ Meghu,
 I choose you.
 Always. 💍`;
 }
-
-
-
 
 
 
