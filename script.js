@@ -68,7 +68,7 @@ document.addEventListener("touchmove", (e) => {
 /* Heart Memories (Image + Message Together) */
 let memories = [
   { img: "images/image1.png", text: "Long Road trip, with beautifull Maghu 💕" },
-  { img: "images/image2.png", text: "My Darling Ramu driver, when you are with everyday feels valentain Day ❤️" },
+  { img: "images/image2.png", text: "My Darling Ramu driver, when you are with me everyday feels valentain Day ❤️" },
   { img: "images/image3.png", text: "I am very proud of my Artist, you are very talented 💎" },
   { img: "images/image4.png", text: "My SuperWoman, the virat kohli of NIQ 💎" },
   { img: "images/image5.png", text: "Traveling whole world with you, is one of my Dream. 😍" },
@@ -206,6 +206,7 @@ Meghu,
 I choose you.
 Always. 💍`;
 }
+
 
 
 
