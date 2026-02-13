@@ -1,5 +1,5 @@
 // 🔒 PASSWORD LOCK (only your wife can access)
-const password = "khechdi";  // Change this to your own password
+const password = "Swifty@2003";  // Change this to your own password
 let entered = prompt("Enter password to open the love story:");
 
 if (entered !== password) {
@@ -205,4 +205,5 @@ Meghu,
 I choose you.
 Always. 💍`;
 }
+
 
