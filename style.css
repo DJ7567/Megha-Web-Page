@@ -64,14 +64,14 @@ button:hover {
 #basket {
   position: absolute;
   bottom: 40px;
-  font-size: 160px;
+  font-size: 80px;
   left: 50%;
   transform: translateX(-50%);
 }
 
 .heart {
   position: absolute;
-  font-size: 40px;
+  font-size: 35px;
 }
 
 #catchMessage {
@@ -95,13 +95,13 @@ button:hover {
   padding: 20px;
   border-radius: 20px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-  max-width: 400px;
+  max-width: 300px;
   text-align: center;
   z-index: 10;
 }
 
 #memoryPopup img {
-  width: 800px;
+  width: 400px;
   max-width: 100%;
   border-radius: 15px;
   margin-bottom: 15px;
@@ -120,3 +120,4 @@ button:hover {
     max-width: 90%;
   }
 }
+
