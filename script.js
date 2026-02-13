@@ -29,7 +29,7 @@ you have to catch my Heart which are falling down 😲,
 on each successful catch you'll see a memory from my heart 💕
 and a Message attached to it.`;
 
-music.play().catch(() => {});
+
 let i = 0;
 function typeWriter() {
   if (i < text.length) {
@@ -42,6 +42,7 @@ typeWriter();
 
 /* Begin Button (Safari Safe Music Start) */
 document.getElementById("beginBtn").addEventListener("click", () => {
+  music.play().catch(() => {});
   showScreen("catch");
   spawnHeart();
 });
@@ -205,6 +206,7 @@ Meghu,
 I choose you.
 Always. 💍`;
 }
+
 
 
 
